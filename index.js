@@ -21,7 +21,7 @@ fetch('https://pokeapi.co/api/v2/pokemon')
 
     console.log(pokeData.results)
 
-    for ( pokemon of pokeData.results ) {
+    for ( const pokemon of pokeData.results ) {
 
         //console.log(pokemon.name)
 
