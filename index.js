@@ -1,7 +1,7 @@
 
 
-const pokemonName = document.getElementById('pokemonList');
-const pokemonUrl = document.getElementById();
+const pokeDisplay = document.getElementById('pokemon-info');
+//const pokemonUrl = document.getElementById();
 
 /*
 
@@ -11,7 +11,6 @@ const new = document.getElementById();
 const new = document.getElementById();
 
 
-*/
 
 
 fetch('https://pokeapi.co/api/v2/pokemon')
@@ -24,12 +23,16 @@ fetch('https://pokeapi.co/api/v2/pokemon')
 
     for ( pokemon of pokeData ) {
 
-
-        const pokeList = document.createElement ('div');
-         document.getElementById();
+        const pokeList = document.createElement('h4');
+        pokeList.textContent = pokeData.results.name;
+        pokeList.append(pokeDisplay)
 
 
     } // end of foor loop function
 
 
 }) // end of .then function
+
+
+
+*/
