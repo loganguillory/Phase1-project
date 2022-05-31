@@ -33,6 +33,16 @@ fetch('https://pokeapi.co/api/v2/pokemon')
         pokeList.addEventListener('click', (e) => {
             pokemonShowcase(pokemon)
 
+            let pokeLink = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.name}.png`;
+            console.log(pokeLink)
+            //fetch('pokeLink')
+            //.then (response => response.json())
+            //.then ( newRequest => { 
+            //    console.log(newRequest)
+
+
+        //    })
+
         }); // ends event listener 1
 
 
