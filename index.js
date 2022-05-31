@@ -22,14 +22,14 @@ fetch('https://pokeapi.co/api/v2/pokemon')
 
 
 
-    for ( pokemon of pokeData ) {
-
-
+    for (pokemon of pokeData) {
         const pokeList = document.createElement ('div');
-         document.getElementById();
+         console.log()
 
 
     } // end of foor loop function
 
 
 }) // end of .then function
+
+
