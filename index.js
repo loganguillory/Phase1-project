@@ -1,37 +1,67 @@
 
 
 const pokeDisplay = document.getElementById('pokemon-info');
-//const pokemonUrl = document.getElementById();
-
+const pokemonDetails = document.getElementById('pokemon-details');
+const pokeImg = document.getElementById('pokemon-image');
+const pokemonName = document.getElementById('pokemonName');
 /*
 
-const new = document.getElementById();
-const new = document.getElementById();
+
+
+
 const new = document.getElementById();
 const new = document.getElementById();
 
-
+*/
 
 
 fetch('https://pokeapi.co/api/v2/pokemon')
 .then( response => response.json())
 .then ( pokeData => {
 
-    console.log(pokeData)
+    console.log(pokeData.results)
 
+    for ( pokemon of pokeData.results ) {
 
-
-    for ( pokemon of pokeData ) {
+        //console.log(pokemon.name)
 
         const pokeList = document.createElement('h4');
-        pokeList.textContent = pokeData.results.name;
-        pokeList.append(pokeDisplay)
+        pokeList.textContent = pokemon.name;
+        pokeDisplay.append(pokeList)
 
 
-    } // end of foor loop function
+        pokeList.addEventListener('click', (e) => {
+            pokemonShowcase(pokemon)
+
+        }); // ends event listener 1
 
 
-}) // end of .then function
+    }; // ends for loop
+
+
+    function pokemonShowcase (poke) {
+
+
+        //console.log(poke)
+        pokemonName.textContent = poke.name;
+        pokemonDescription.textContent = poke.url;
+        //pokemonImg.src = 
+        
+
+
+
+    }; // ends pokemonShowcase function 
+
+
+
+
+}); // ends .then function
+
+
+
+
+/*
+test area
 
 
 
