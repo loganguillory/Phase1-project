@@ -9,7 +9,6 @@ const pokeId = document.getElementById('pokemon-id');
 const pokeSpecies = document.getElementById('pokemon-species');
 const pokeType = document.getElementById('pokemon-type');
 const pokeLookUp = document.getElementById('pokemonSearch2');
-const backgroundImage = document.createElement('background-image')
 
 /*
 
