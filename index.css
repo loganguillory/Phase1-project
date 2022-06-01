@@ -50,7 +50,7 @@ li:hover {
     background-color: beige;
     position: absolute;
     height: 100%;
-    width: 50%;
+    width: 50%; 
     position: fixed;
     z-index: 1;
     top: 0;

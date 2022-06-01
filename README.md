@@ -2,4 +2,4 @@
 Logan Guillory and Alan Matos' phase-1-project
 
 Simple Search Engine 
--
+
