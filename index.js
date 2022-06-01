@@ -5,76 +5,65 @@ const pokemonDetails = document.getElementById('pokemon-details');
 const pokeImg = document.getElementById('pokemon-image');
 const pokemonName = document.getElementById('pokemonName');
 const pokeicon = document.getElementById('pokemon-icon');
-//et pokeLink =
+const pokeId = document.getElementById('pokemon-id');
+const pokeSpecies  = document.getElementById('pokemon-species');
+const pokeType = document.getElementById('pokemon-type');
 
 /*
 
-const new = document.getElementById();
-const new = document.getElementById();
 
 */
 
+for ( let i = 1; i <= 150; i++) {
+    
+    let pokeUrl = `https://pokeapi.co/api/v2/pokemon/${i}`;
 
-fetch('https://pokeapi.co/api/v2/pokemon')
-    .then(response => response.json())
-    .then(pokeData => {
+    
+fetch(pokeUrl)
+.then(response => response.json())
+.then(pokeData => {
 
-        console.log(pokeData.results)
+    pokemonLista(pokeData)
 
-        for (const pokemon of pokeData.results) {
+    
 
-            //console.log(pokemon.name)
+    })
+  function pokemonLista (pokemonData) { 
 
-            const pokeList = document.createElement('li');
-            pokeList.textContent = pokemon.name;
-            pokeDisplay.append(pokeList)
+    console.log(pokemonData)
+    
+    
+    const pokeList = document.createElement('li');
+    pokeList.textContent = pokemonData.name;
+    pokeDisplay.append(pokeList)
 
-
-            pokeList.addEventListener('click', (e) => {
-                //pokemonShowcase(pokemon)
-
-                let pokeLink = `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`;
-                console.log(pokeLink)
-                fetch(pokeLink)
-                    .then(response => response.json())
-                    .then(newRequest => {
-                        console.log(newRequest)
-                        pokemonShowcase(newRequest)
+    
 
 
+    pokeList.addEventListener('click', (e) => {
+        
+        pokemonShowcase(pokemonData)});
+        
 
 
+        
 
 
-
-                    });
-
-            }); // ends event listener 1
+}
 
 
-        }; // ends for loop
+function pokemonShowcase(poke) {
+
+    //console.log(poke.sprites.back_default)
+    //console.log(poke.types[0].type.name)
+
+    pokemonName.textContent = `Name: ${poke.name}`;
+    pokeId.textContent = `ID: ${poke.id}`;
+    pokeicon.src = poke.sprites.front_default
+    pokeSpecies.textContent = `Specie: ${poke.species.name}`;
+    pokeType.textContent = `Type ${poke.types[0].type.name}`;
+}
 
 
-        function pokemonShowcase(poke) {
-
-            console.log(poke.sprites.back_default)
-            pokemonName.textContent = poke.name;
-            pokeicon.src = poke.sprites.front_default
-            //pokemonImg.src = 
-
-        }; // ends pokemonShowcase function 
-
-
-
-
-    }); // ends .then function
-
-
-
-
-/*
-test area
-
-
-
-*/
+}
+//pokemonShowcase(pokemonData[1])

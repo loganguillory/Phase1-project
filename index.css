@@ -1,11 +1,23 @@
 
-body{
-
-    background-color: turquoise;    
-
+h1{
+    font-family: 'Pokemon Solid', sans-serif;   
 }
 
 
+body{
+
+    background-color: turquoise;
+       
+
+}
+
+li:hover {
+    font-size: large;
+    transition: all .2s ease-in-out;
+    transform: scale(1.1); 
+    
+
+}
 
 #pokemon-info {
 
