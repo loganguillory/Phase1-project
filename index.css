@@ -18,9 +18,12 @@ body{
 }
 
 li:hover {
-    font-size: large;
-    transition: all .2s ease-in-out;
-    transform: scale(1.1); 
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    animation-name: example;
+    animation-duration: 0.25s;
+    border-left: 8px solid red;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     
 
 }
