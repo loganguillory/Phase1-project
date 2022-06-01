@@ -11,6 +11,12 @@ body{
 
 }
 
+#pokemonName {
+    font-family: 'Pokemon Solid', sans-serif;   
+    font-size:xx-large;
+
+}
+
 li:hover {
     font-size: large;
     transition: all .2s ease-in-out;
