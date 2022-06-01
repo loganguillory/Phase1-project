@@ -1,33 +1,36 @@
 
 h1{
     font-family: 'Pokemon Solid', sans-serif;   
+    font-size: 70px;
 }
 
 
 body{
 
     background-color: turquoise;
-       
-
+   background-image: url("./img/BackgroundImage.png");
 }
 
 #pokemonName {
     font-family: 'Pokemon Solid', sans-serif;   
-    font-size:xx-large;
+    font-size: 70px;
 
 }
 
+
 li:hover {
-    font-size: large;
+    font-size: 70;
     transition: all .2s ease-in-out;
     transform: scale(1.1); 
+    filter: drop-shadow(30px 10px 4px #4444dd);
+   
     
 
 }
 
 #pokemon-info {
 
-    background-color: azure;
+    
     position: absolute;
     height: 100%;
     width: 50%;

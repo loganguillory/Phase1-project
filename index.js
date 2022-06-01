@@ -9,6 +9,7 @@ const pokeId = document.getElementById('pokemon-id');
 const pokeSpecies = document.getElementById('pokemon-species');
 const pokeType = document.getElementById('pokemon-type');
 const pokeLookUp = document.getElementById('pokemonSearch2');
+const backgroundImage = document.createElement('background-image')
 
 /*
 
@@ -49,7 +50,7 @@ for (let i = 1; i <= 150; i++) {
 
 
         const pokeList = document.createElement('li');
-        pokeList.textContent = pokemonData.name;
+        pokeList.textContent = pokemonData.name.toUpperCase([0]);
         pokeDisplay.append(pokeList)
 
 
