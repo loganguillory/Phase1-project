@@ -22,9 +22,7 @@ fetch('https://pokeapi.co/api/v2/pokemon')
     console.log(pokeData.results)
 
     for ( const pokemon of pokeData.results ) {
-
         //console.log(pokemon.name)
-
         const pokeList = document.createElement('h4');
         pokeList.textContent = pokemon.name;
         pokeDisplay.append(pokeList)
@@ -50,6 +48,6 @@ fetch('https://pokeapi.co/api/v2/pokemon')
 
 
 
-}) // end of .then function
+}})// end of .then function
 
 
