@@ -5,44 +5,31 @@ const pokemonDetails = document.getElementById('pokemon-details');
 const pokeImg = document.getElementById('pokemon-image');
 const pokemonName = document.getElementById('pokemonName');
 const pokeicon = document.getElementById('pokemon-icon');
-const h1 = document.createElement('h1')
-
-//const pokeDescription = document.getElementById('pokemonDescription')
-//et pokeLink =
+const pokeId = document.getElementById('pokemon-id');
+const pokeSpecies = document.getElementById('pokemon-species');
+const pokeType = document.getElementById('pokemon-type');
+const pokeLookUp = document.getElementById('pokemonSearch2');
 
 /*
 
-const new = document.getElementById();
-const new = document.getElementById();
 
 */
 
 
-fetch('https://pokeapi.co/api/v2/pokemon')
-    .then(response => response.json())
-    .then(pokeData => {
+for (let i = 1; i <= 150; i++) {
 
-        console.log(pokeData.results)
-
-        for (const pokemon of pokeData.results) {
-
-            //console.log(pokemon.name)
-
-            const pokeList = document.createElement('li');
-            pokeList.textContent = pokemon.name;
-            pokeDisplay.append(pokeList)
+    let pokeUrl = `https://pokeapi.co/api/v2/pokemon/${i}`;
 
 
-            pokeList.addEventListener('click', (e) => {
-                //pokemonShowcase(pokemon)
+    fetch(pokeUrl)
+        .then(response => response.json())
+        .then(pokeData => {
 
-                let pokeLink = `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`;
-                console.log(pokeLink)
-                fetch(pokeLink)
-                    .then(response => response.json())
-                    .then(newRequest => {
-                        console.log(newRequest)
-                        pokemonShowcase(newRequest)
+            pokemonLista(pokeData)
+
+
+
+        })
 
 
                 // let descriptionLink = `https://pokeapi.co/api/v2/characteristic/${pokemon.description}`
@@ -56,31 +43,102 @@ fetch('https://pokeapi.co/api/v2/pokemon')
 
 
 
+    function pokemonLista(pokemonData) {
 
 
 
 
-                    });
-
-            }); // ends event listener 1
-
-
-        }; // ends for loop
-
-
-        function pokemonShowcase(poke) {
-
-            console.log(poke.sprites.back_default)
-            pokemonName.textContent = poke.name;
-            pokeicon.src = poke.sprites.front_default
-            //pokeDescription = poke.description
-            //pokemonImg.src = 
-
-        }; // ends pokemonShowcase function 
+        const pokeList = document.createElement('li');
+        pokeList.textContent = pokemonData.name;
+        pokeDisplay.append(pokeList)
 
 
 
 
-    }); // ends .then function
+        pokeList.addEventListener('click', (e) => {
+
+            pokemonShowcase(pokemonData)
+        });
 
 
+
+        pokeLookUp.addEventListener('submit', (e) => {
+            e.preventDefault();
+            console.log(pokeLookUp.textContent)
+        })
+
+
+        // show pokemon when load the page
+        pokemonShowcase(pokemonData)
+
+
+
+
+    }
+
+
+    function pokemonShowcase(poke) {
+
+        //console.log(poke.sprites.back_default)
+        //console.log(poke.types[0].type.name)
+
+        pokemonName.textContent = ` ${poke.name}`;
+        pokeId.textContent = `ID: ${poke.id}`;
+        pokeicon.src = poke.sprites.front_default;
+        pokeSpecies.textContent = `Species: ${poke.species.name}`;
+        pokeType.textContent = `${poke.types[0].type.name}`;
+        dinamicBackground(pokeType.textContent)
+
+    }
+
+
+    // background change
+    function dinamicBackground(typeColor) {
+
+        if (typeColor === 'water') {
+            document.getElementById("pokemon-details").style.backgroundColor = "#0A7ABC";
+        }
+        else if (typeColor === 'grass') {
+            document.getElementById("pokemon-details").style.backgroundColor = "#3E9709";
+        }
+        else if (typeColor === 'fire') {
+            document.getElementById("pokemon-details").style.backgroundColor = '#F67F0B';
+        }
+        else if (typeColor === 'bug') {
+            document.getElementById("pokemon-details").style.backgroundColor = '#91BA2E';
+        }
+        else if (typeColor === 'normal') {
+            document.getElementById("pokemon-details").style.backgroundColor = '#ACA974';
+        }
+        else if (typeColor === 'poison') {
+            document.getElementById("pokemon-details").style.backgroundColor = '#611380';
+        }
+        else if (typeColor === 'rock') {
+            document.getElementById("pokemon-details").style.backgroundColor = '#C1C1C1';
+        }
+        else if (typeColor === 'electric') {
+            document.getElementById("pokemon-details").style.backgroundColor = '#FFFA24';
+        }
+        else if (typeColor === 'ground') {
+            document.getElementById("pokemon-details").style.backgroundColor = '#EDE193';
+        }
+        else if (typeColor === 'psychic') {
+            document.getElementById("pokemon-details").style.backgroundColor = '#EDE193';
+        }
+        else if (typeColor === 'fairy') {
+            document.getElementById("pokemon-details").style.backgroundColor = '#EFE18A';
+        }
+        else if (typeColor === 'fighting') {
+            document.getElementById("pokemon-details").style.backgroundColor = '#800B11';
+        }
+        else if (typeColor === 'dragon') {
+            document.getElementById("pokemon-details").style.backgroundColor = '#8A55FD';
+        }
+        else if (typeColor === 'ice') {
+            document.getElementById("pokemon-details").style.backgroundColor = '#1995A1';
+        }
+    }
+
+
+}
+//pokemonShowcase(pokemonData[1])
