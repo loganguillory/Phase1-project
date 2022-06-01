@@ -5,6 +5,9 @@ const pokemonDetails = document.getElementById('pokemon-details');
 const pokeImg = document.getElementById('pokemon-image');
 const pokemonName = document.getElementById('pokemonName');
 const pokeicon = document.getElementById('pokemon-icon');
+const h1 = document.createElement('h1')
+
+//const pokeDescription = document.getElementById('pokemonDescription')
 //et pokeLink =
 
 /*
@@ -42,6 +45,16 @@ fetch('https://pokeapi.co/api/v2/pokemon')
                         pokemonShowcase(newRequest)
 
 
+                // let descriptionLink = `https://pokeapi.co/api/v2/characteristic/${pokemon.description}`
+                // console.log(descriptionLink)
+                // fetch(descriptionLink)
+                //         .then(response => response.json())
+                //         .then(description => {
+                //             console.log(description)
+                //             pokemonShowcase(description)
+                //         })
+
+
 
 
 
@@ -60,6 +73,7 @@ fetch('https://pokeapi.co/api/v2/pokemon')
             console.log(poke.sprites.back_default)
             pokemonName.textContent = poke.name;
             pokeicon.src = poke.sprites.front_default
+            //pokeDescription = poke.description
             //pokemonImg.src = 
 
         }; // ends pokemonShowcase function 
