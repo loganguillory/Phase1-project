@@ -1,5 +1,6 @@
 
 h1{
+    
     font-family: 'Pokemon Solid', sans-serif; 
     font-size:70px;  
 }
@@ -21,7 +22,7 @@ body{
 }
 
 li:hover {
-    font-size:70px;
+    font-size:30px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     animation-name: example;
@@ -34,6 +35,7 @@ li:hover {
 }
 
 #pokemon-info {
+    font-size: 25px;
     position: absolute;
     height: 100%;
     width: 50%;
@@ -44,8 +46,9 @@ li:hover {
     padding-top: 20px;
     left: 0;
     
-
+   
 }
+
 
 
 #pokemon-details{
