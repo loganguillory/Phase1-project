@@ -6,10 +6,25 @@ h1{
 }
 
 
-body{
+#go{
+    background:url('https://cdn-icons-png.flaticon.com/128/743/743977.png'); 
+    background-repeat: no-repeat;
+    background-size: 50px;
+    cursor:pointer;
+    border:none;
+    width:50px;
+    height:50px;
+}
 
-    background-color: turquoise;
-    background-image:url("./img/BackgroundImage.png");
+
+
+
+body{
+background-image: url("https://cdn.dribbble.com/users/1771704/screenshots/6124573/attachments/1313609/pokeball.gif?compress=1&resize=400x300&vertical=top");
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center center;
+background-size: cover;
 }
 
 
@@ -24,8 +39,7 @@ body{
 li:hover {
     font-size:30px;
     border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    animation-name: example;
+    border-bottom-left-radius: 10px;    
     animation-duration: 0.25s;
     border-left: 8px solid red;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -54,7 +68,6 @@ li:hover {
 
 #pokemon-details{
 
-    background-color: beige;
     align-items: center;
     position: absolute;
     height: 100%;
