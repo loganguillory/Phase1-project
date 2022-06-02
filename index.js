@@ -4,20 +4,29 @@ const bodyy = document.getElementsByTagName('body');
 
 
 function myTimeoutFunction() {
-    console.log(' the page will now be loaded');
+    //console.log(' the page will now be loaded');
     websiteLoad()
     document.body.style.backgroundImage = "url('https://cdn.vox-cdn.com/thumbor/WLoR5Ky1NcQPkDEETYMt1bteS48=/0x0:1920x1080/920x613/filters:focal(807x387:1113x693):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/69623074/Pokemon_UNITE___Team_Up._Take_Down.___Hero_Image___1080p.0.png')";
 
     
 }
 
+let allPokemon 
+
 var myTimeout = setTimeout(myTimeoutFunction, 3000);
-
-
 
 function websiteLoad () {
 
 
+    function randonPokemon() {
+        let randon = parseInt(Math.floor(Math.random() * (150-1) + 1));
+        //const randonPoke = parseInt('randon')
+                
+        //console.log(typeof randon)
+        pokemonShowcase(allPokemon[randon])    
+        //console.log(`pokemons[${randon}]`)
+        
+        }
 
 
 
@@ -53,22 +62,15 @@ Promise.all(pokeTest).then((pokemons) => {
     const pokemonsOrdem = pokemons.sort((prevPokemon, nextPokemon) => prevPokemon.name.localeCompare(nextPokemon.name))
     pokemonsOrdem.forEach((pokemon) => {
         pokemonLista(pokemon)
-       const pokeArr = [pokemon.name] 
+        allPokemon = pokemons 
     //console.log(pokeArr)
-    pokemonSearch(pokeArr)
+    
 
 
     })
         // this will display Lapras when the page loads, thats my favorite pokemon and it is a good enough reason.
         pokemonShowcase(pokemons[68]);
-
-  
-        function pokemonSearch(item) {
-
-            //console.log(item)
-            const result = pokemons.find(pokemonName => pokemonName === item)
-            console.log(result)
-        };    
+       
 
 
 
@@ -90,12 +92,45 @@ function pokemonLista(pokemonData) {
 
 
 function pokemonShowcase(poke) {
-    pokemonName.textContent = ` ${poke.name}`;
+    pokemonName.textContent = ` ${poke.name}`;    
     pokeId.textContent = `ID: ${poke.id}`;
     pokeicon.src = poke.sprites.front_default;
     pokeSpecies.textContent = `Species: ${poke.species.name}`;
     pokeType.textContent = `${poke.types[0].type.name}`;
     dinamicBackground(pokeType.textContent)
+
+    
+      
+
+    pokeicon.addEventListener('click',(e)=> {
+        setTimeout(movePokemonBack, 700);
+        //setTimeout(mySecondTimeOut, 1000);
+        //mySecondTimeOut();
+
+ 
+    })
+
+    pokemonName.addEventListener('click',(e)=> {
+     pokemonName.textContent = "Gotta Catch 'Em All"
+     setTimeout(setNameBack, 1000);
+
+    })
+
+    function setNameBack(){
+        pokemonName.textContent = ` ${poke.name}`;
+    }
+
+    function movePokemonBack() {
+        pokeicon.src = poke.sprites.back_default;
+        setTimeout(mySecondTimeOut, 1000);
+          
+        
+        }
+
+        function mySecondTimeOut() {
+            pokeicon.src = poke.sprites.front_default;
+          }
+          
 
 
 }
@@ -150,15 +185,16 @@ function dinamicBackground(typeColor) {
 
 
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault()
-    const searchItem = pokeLookUp.value;
-    console.log(searchItem)
-    pokemonSearch(searchItem)
+goBtn.addEventListener('click', (e) => {
+    //e.preventDefault()
+    //const searchItem = pokeLookUp.value;
+    //console.log(searchItem)
+    //pokemonSearch(searchItem)
+    randonPokemon();
 
     //pokemonShowcase(pokeLookUp.value)
     //console.log(pokemon)
-    })
+    });
 
 
 
@@ -178,5 +214,18 @@ find methond ...
         console.log(result)
     };
 
+        function pokemonSearch(item) {
+
+        //console.log(item)
+        //const result = pokeArr.find(pokemonName => pokemonName === item) // includes
+        //console.log(result)
+        console.log(pokemon.includes(`${item}`));
+        
+    };  
 
     */
+
+
+  
+
+

@@ -6,6 +6,13 @@ h1{
 }
 
 
+#pokemon-id :hover{
+
+    font-size:30px;
+
+}
+
+
 #go{
     background:url('https://cdn-icons-png.flaticon.com/128/743/743977.png'); 
     background-repeat: no-repeat;
